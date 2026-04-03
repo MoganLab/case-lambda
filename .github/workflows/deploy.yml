@@ -42,8 +42,11 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Check format
+        run: yarn format:check
+
       - name: Build
-        run: yarn docs:build
+        run: yarn vitepress build docs
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
