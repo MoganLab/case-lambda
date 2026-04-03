@@ -52,6 +52,9 @@ export default [
       'vue/no-v-html': 'off',
       'vue/require-default-prop': 'off',
       'vue/require-prop-types': 'off',
+      // 禁用与 Prettier 冲突的格式规则
+      'vue/max-attributes-per-line': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
       'vue/html-self-closing': [
         'error',
         {

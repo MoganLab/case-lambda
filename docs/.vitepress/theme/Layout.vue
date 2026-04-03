@@ -3,7 +3,7 @@ import { useData } from 'vitepress'
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
 
-const { frontmatter, page } = useData()
+const { frontmatter } = useData()
 </script>
 
 <template>
