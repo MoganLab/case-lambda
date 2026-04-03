@@ -13,7 +13,4 @@ export default defineConfig({
   
   // 清理 URL
   cleanUrls: true,
-  
-  // 最后更新时间
-  lastUpdated: true,
 })
