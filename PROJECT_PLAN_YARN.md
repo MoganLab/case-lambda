@@ -3,7 +3,7 @@
 ## 🌙 项目概述
 
 **项目名称**: Goldfish Scheme 文档网站  
-**技术栈**: VitePress + TypeScript + Tailwind CSS v4 + ESLint + Prettier  
+**技术栈**: VitePress + TypeScript + ESLint + Prettier  
 **包管理器**: Yarn 1.22.22  
 **目标**: 为 [MoganLab/goldfish](https://github.com/MoganLab/goldfish)
 创建一个现代化、易用的文档网站
@@ -20,54 +20,56 @@
 - [x] 脚本绑定优化
 - [x] GitHub Pages 自动化部署
 
-### 阶段 2: 文档架构 🟡
+### 阶段 2: 文档架构 ✅
 
-- [ ] **导航结构设计**
-  - [x] 顶部导航（NavBar）
-  - [ ] 侧边栏导航（Sidebar.vue）
-  - [x] 页脚信息（Footer.vue）
-  - [ ] 文档目录组件（Toc.vue）
-- [ ] **自定义主题完善**
-  - [x] 基础布局（Layout.vue）
-  - [x] 导航栏（NavBar.vue）
-  - [x] 页脚（Footer.vue）
-  - [ ] 侧边栏组件（Sidebar.vue）
-  - [ ] 文档目录组件（Toc.vue）
-  - [ ] 深色/浅色模式切换
-- [ ] **页面模板**
-  - [x] 首页模板（home: true）
-  - [ ] 文档页模板
-  - [ ] 全宽页面模板（可选）
+- [x] **导航结构设计**
+  - [x] 顶部导航（NavBar）- VitePress 默认主题
+  - [x] 侧边栏导航（Sidebar）- VitePress 默认主题
+  - [x] 页脚信息（Footer）- VitePress 默认主题
+  - [x] 文档目录组件（Toc）- VitePress 默认主题
+- [x] **主题配置**
+  - [x] 扩展 VitePress 默认主题
+  - [x] 自定义样式（style.css）
+  - [x] 语言自动重定向
+- [x] **页面模板**
+  - [x] 首页模板（layout: home）
+  - [x] 文档页模板
+- [x] **多语言目录结构**
+  - [x] 中文内容 (zh/) - 🟢 当前开发
+  - [x] 英文内容 (en/) - 🔴 预留
+  - [x] 日语内容 (ja/) - 🔴 预留
+  - [x] 法语内容 (fr/) - 🔴 预留
+  - [x] 俄语内容 (ru/) - 🔴 预留
+  - [x] 根目录重定向 (index.md)
 
-### 阶段 3: 内容编写 🔴
+### 阶段 3: 内容编写 ✅
 
-- [ ] 编写快速开始指南
-- [ ] 编写 API 文档
-- [ ] 编写标准库文档
+- [x] 编写快速开始指南
+- [x] 编写 API 文档
+- [x] 编写标准库文档
 
 ### 阶段 4: 高级功能 🔴
 
-- [ ] **搜索功能**
-  - [ ] 配置本地搜索
-  - [ ] 自定义搜索 UI（可选）
+- [x] **搜索功能**
+  - [x] 配置本地搜索
 - [ ] **多语言支持 (i18n)**
-  - [ ] 配置多语言目录结构
-  - [ ] 配置语言切换器
-  - [ ] 中文内容 (zh) - 🟢 当前开发
+  - [x] 配置多语言目录结构
+  - [x] 配置语言切换器（VitePress 内置）
+  - [x] 中文内容 (zh) - 🟢 当前开发
   - [ ] 英文内容 (en) - 🔴 预留
   - [ ] 日语内容 (ja) - 🔴 预留
   - [ ] 法语内容 (fr) - 🔴 预留
   - [ ] 俄语内容 (ru) - 🔴 预留
-- [ ] **Tailwind CSS v4 集成**
+- [ ] **Tailwind CSS v4 集成**（可选）
   - [ ] 配置 Tailwind CSS v4
   - [ ] 设计系统/组件库
   - [ ] 响应式布局优化
   - [ ] 深色模式支持
-- [ ] **自动化部署** ✅
+- [x] **自动化部署**
   - [x] GitHub Actions 配置
   - [x] GitHub Pages 部署
 
-### 阶段 5: Playground 🔴
+### 阶段 5: Playground 🔴（长期）
 
 - [ ] **技术调研**
   - [ ] 确认 Goldfish Scheme 构建方式
@@ -98,34 +100,35 @@ case-lambda/
 ├── docs/                      # 文档内容
 │   ├── .vitepress/           # VitePress 配置
 │   │   ├── config.mts        # 主配置 (TypeScript)
-│   │   ├── config/           # 多语言配置
-│   │   │   ├── shared.ts     # 共享配置
-│   │   │   ├── zh.ts         # 中文配置
-│   │   │   ├── en.ts         # 英文配置（预留）
-│   │   │   ├── ja.ts         # 日语配置（预留）
-│   │   │   ├── fr.ts         # 法语配置（预留）
-│   │   │   └── ru.ts         # 俄语配置（预留）
-│   │   ├── theme/            # 自定义主题
-│   │   │   ├── Layout.vue
-│   │   │   ├── components/
-│   │   │   │   ├── NavBar.vue
-│   │   │   │   ├── Footer.vue
-│   │   │   │   ├── Sidebar.vue      # 待实现
-│   │   │   │   └── Toc.vue          # 待实现
-│   │   │   └── style.css     # Tailwind CSS 入口
+│   │   ├── theme/            # 主题配置
+│   │   │   ├── index.ts      # 扩展默认主题
+│   │   │   └── style.css     # 自定义样式
 │   │   └── env.d.ts          # 类型声明
-│   ├── zh/                   # 中文内容（默认）
-│   │   ├── index.md
-│   │   └── guide/
-│   │       └── getting-started.md
-│   ├── en/                   # 英文内容（预留）
+│   ├── zh/                   # 中文内容（默认）✅
+│   │   ├── index.md          # 首页
+│   │   ├── guide/            # 指南文档
+│   │   │   ├── getting-started.md
+│   │   │   ├── installation.md
+│   │   │   ├── cli.md
+│   │   │   ├── repl.md
+│   │   │   ├── modules.md
+│   │   │   └── modes.md
+│   │   └── api/              # API 文档
+│   │       ├── index.md
+│   │       ├── liii/         # Liii 库 (19个文件)
+│   │       ├── srfi/         # SRFI (14个文件)
+│   │       └── scheme/       # R7RS 标准 (6个文件)
+│   ├── en/                   # 英文内容（预留）✅
 │   │   └── index.md
-│   ├── ja/                   # 日语内容（预留）
+│   ├── ja/                   # 日语内容（预留）✅
 │   │   └── index.md
-│   ├── fr/                   # 法语内容（预留）
+│   ├── fr/                   # 法语内容（预留）✅
 │   │   └── index.md
-│   └── ru/                   # 俄语内容（预留）
-│       └── index.md
+│   ├── ru/                   # 俄语内容（预留）✅
+│   │   └── index.md
+│   ├── index.md              # 语言重定向页
+│   └── public/               # 公共资源
+│       └── GoldfishScheme-logo.png
 ├── package.json              # 项目配置
 ├── tsconfig.json             # TypeScript 配置
 ├── eslint.config.js          # ESLint 配置
@@ -220,12 +223,16 @@ yarn install
 - 支持 Vue、Markdown、JSON 格式化
 - 不同文件类型的覆盖配置
 
-### Tailwind CSS v4 (待配置)
+### VitePress 默认主题
 
-- 使用 CSS-first 配置方式
-- 与 VitePress 集成
-- 支持深色模式
-- 自定义设计系统
+项目使用 VitePress 默认主题，通过 `extends: DefaultTheme` 扩展：
+
+- ✅ 完整的导航、侧边栏、目录功能
+- ✅ 内置搜索功能
+- ✅ 多语言切换
+- ✅ 响应式设计
+- ✅ 深色/浅色模式
+- ✅ 自定义样式通过 `style.css`
 
 ---
 
@@ -245,12 +252,23 @@ yarn install
 
 ```
 docs/
-├── zh/          # 中文内容（默认）
-├── en/          # 英文内容（预留）
-├── ja/          # 日语内容（预留）
-├── fr/          # 法语内容（预留）
-└── ru/          # 俄语内容（预留）
+├── zh/          # 中文内容（默认）✅
+├── en/          # 英文内容（预留）✅
+├── ja/          # 日语内容（预留）✅
+├── fr/          # 法语内容（预留）✅
+└── ru/          # 俄语内容（预留）✅
 ```
+
+### 语言自动检测
+
+根目录 `docs/index.md` 会根据浏览器语言自动重定向：
+
+- `zh-CN`, `zh-TW`, `zh-HK`, `zh-SG` → `/zh/`
+- `en-US`, `en-GB`, `en` → `/en/`
+- `ja-JP`, `ja` → `/ja/`
+- `fr-FR`, `fr` → `/fr/`
+- `ru-RU`, `ru` → `/ru/`
+- 其他 → `/zh/` (默认中文)
 
 ---
 
@@ -266,14 +284,6 @@ docs/
   "prettier": "^3.8.1",
   "vitepress": "^1.6.4",
   "vue": "^3.5.32"
-}
-```
-
-### 计划添加
-
-```json
-{
-  "tailwindcss": "^4.0.0"
 }
 ```
 
@@ -351,8 +361,8 @@ yarn eslint --print-config eslint.config.js
 | 阶段  | 任务       | 状态      |
 | ----- | ---------- | --------- |
 | 阶段1 | 基础配置   | ✅ 完成   |
-| 阶段2 | 文档架构   | 🟡 进行中 |
-| 阶段3 | 内容编写   | 🔴 待开始 |
+| 阶段2 | 文档架构   | ✅ 完成   |
+| 阶段3 | 内容编写   | ✅ 完成   |
 | 阶段4 | 高级功能   | 🔴 待开始 |
 | 阶段5 | Playground | 🔴 待调研 |
 

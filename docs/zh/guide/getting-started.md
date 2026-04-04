@@ -82,5 +82,5 @@ Goldfish Scheme 提供了丰富的标准库：
 ## 下一步
 
 - 了解 [命令行用法](./cli.md)
-- 探索 [API 文档](/api/liii/)
+- 探索 [API 文档](/zh/api/liii/)
 - 查看 [Mogan Research](https://mogan.app) 获取图形化 REPL
