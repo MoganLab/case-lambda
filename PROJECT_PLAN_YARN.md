@@ -60,11 +60,11 @@
   - [ ] 日语内容 (ja) - 🔴 预留
   - [ ] 法语内容 (fr) - 🔴 预留
   - [ ] 俄语内容 (ru) - 🔴 预留
-- [ ] **Tailwind CSS v4 集成**（可选）
-  - [ ] 配置 Tailwind CSS v4
-  - [ ] 设计系统/组件库
-  - [ ] 响应式布局优化
-  - [ ] 深色模式支持
+- [x] **Tailwind CSS v4 集成**（可选）
+  - [x] 配置 Tailwind CSS v4
+  - [x] 设计系统/组件库
+  - [x] 响应式布局优化
+  - [x] 深色模式支持
 - [x] **自动化部署**
   - [x] GitHub Actions 配置
   - [x] GitHub Pages 部署
@@ -102,7 +102,7 @@ case-lambda/
 │   │   ├── config.mts        # 主配置 (TypeScript)
 │   │   ├── theme/            # 主题配置
 │   │   │   ├── index.ts      # 扩展默认主题
-│   │   │   └── style.css     # 自定义样式
+│   │   │   └── style.css     # 自定义样式（含 Tailwind）
 │   │   └── env.d.ts          # 类型声明
 │   ├── zh/                   # 中文内容（默认）✅
 │   │   ├── index.md          # 首页
@@ -112,7 +112,8 @@ case-lambda/
 │   │   │   ├── cli.md
 │   │   │   ├── repl.md
 │   │   │   ├── modules.md
-│   │   │   └── modes.md
+│   │   │   ├── modes.md
+│   │   │   └── tailwind.md     # Tailwind CSS 使用示例
 │   │   └── api/              # API 文档
 │   │       ├── index.md
 │   │       ├── liii/         # Liii 库 (19个文件)
@@ -233,6 +234,21 @@ yarn install
 - ✅ 响应式设计
 - ✅ 深色/浅色模式
 - ✅ 自定义样式通过 `style.css`
+- ✅ Tailwind CSS v4 集成
+
+### Tailwind CSS (style.css)
+
+```css
+/* Tailwind CSS v4 */
+@import 'tailwindcss';
+
+/* 暗黑模式：与 VitePress 的 .dark 类同步 */
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+- 使用 CSS 优先配置（Tailwind v4 新特性）
+- `@custom-variant` 实现与 VitePress 暗黑模式同步
+- 编辑器可能对 `@custom-variant` 显示警告，但不影响功能
 
 ---
 
@@ -283,7 +299,9 @@ docs/
   "eslint-plugin-vue": "^10.8.0",
   "prettier": "^3.8.1",
   "vitepress": "^1.6.4",
-  "vue": "^3.5.32"
+  "vue": "^3.5.32",
+  "tailwindcss": "^4.2.2",
+  "@tailwindcss/vite": "^4.2.2"
 }
 ```
 
@@ -363,7 +381,7 @@ yarn eslint --print-config eslint.config.js
 | 阶段1 | 基础配置   | ✅ 完成   |
 | 阶段2 | 文档架构   | ✅ 完成   |
 | 阶段3 | 内容编写   | ✅ 完成   |
-| 阶段4 | 高级功能   | 🔴 待开始 |
+| 阶段4 | 高级功能   | 🟡 进行中 |
 | 阶段5 | Playground | 🔴 待调研 |
 
 ---
@@ -375,7 +393,7 @@ yarn eslint --print-config eslint.config.js
 ---
 
 **计划制定者**: 月见八千代  
-**制定时间**: 2024年4月4日  
+**制定时间**: 2024年4月4日 **更新时间**: 2026年4月4日  
 **Yarn 版本**: 1.22.22
 
 > _"一步一步来，基础打好了，后面就顺畅了~"_

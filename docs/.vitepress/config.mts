@@ -1,7 +1,11 @@
 import { defineConfig } from 'vitepress'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
   // 构建输出目录 (docs/dist/)
   outDir: './dist',
 
@@ -168,7 +172,7 @@ export default defineConfig({
         },
         footer: {
           message: '基于 Apache 2.0 许可发布',
-          copyright: 'Copyright © 2024 Goldfish Scheme Authors',
+          copyright: 'Copyright © 2026 MoganLab',
         },
       },
     },
@@ -182,7 +186,7 @@ export default defineConfig({
       themeConfig: {
         footer: {
           message: 'Released under the Apache 2.0 License',
-          copyright: 'Copyright © 2024 Goldfish Scheme Authors',
+          copyright: 'Copyright © 2026 MoganLab',
         },
       },
     },
@@ -196,7 +200,7 @@ export default defineConfig({
       themeConfig: {
         footer: {
           message: 'Apache 2.0 ライセンスの下で公開',
-          copyright: 'Copyright © 2024 Goldfish Scheme Authors',
+          copyright: 'Copyright © 2026 MoganLab',
         },
       },
     },
@@ -210,7 +214,7 @@ export default defineConfig({
       themeConfig: {
         footer: {
           message: 'Publié sous licence Apache 2.0',
-          copyright: 'Copyright © 2024 Goldfish Scheme Authors',
+          copyright: 'Copyright © 2026 MoganLab',
         },
       },
     },
@@ -224,7 +228,7 @@ export default defineConfig({
       themeConfig: {
         footer: {
           message: 'Выпущено под лицензией Apache 2.0',
-          copyright: 'Copyright © 2024 Goldfish Scheme Authors',
+          copyright: 'Copyright © 2026 MoganLab',
         },
       },
     },
