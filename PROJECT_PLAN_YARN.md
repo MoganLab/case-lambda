@@ -240,7 +240,7 @@ yarn install
 
 ```css
 /* Tailwind CSS v4 */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* 暗黑模式：与 VitePress 的 .dark 类同步 */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -393,8 +393,7 @@ yarn eslint --print-config eslint.config.js
 ---
 
 **计划制定者**: 月见八千代  
-**制定时间**: 2024年4月4日
-**更新时间**: 2026年4月4日  
+**制定时间**: 2024年4月4日 **更新时间**: 2026年4月4日  
 **Yarn 版本**: 1.22.22
 
 > _"一步一步来，基础打好了，后面就顺畅了~"_
