@@ -1,0 +1,4 @@
+/* 增大导航栏 logo */
+.VPNavBarTitle .logo {
+  height: 60px;  /* 默认是 24px，调大到 60px */
+}

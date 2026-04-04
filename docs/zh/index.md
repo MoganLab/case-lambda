@@ -5,9 +5,6 @@ hero:
   name: Goldfish Scheme
   text: 让 Scheme 和 Python 一样易用
   tagline: R7RS-small 兼容的 Scheme 解释器，拥有 Python 风格的丰富标准库
-  image:
-    src: /GoldfishScheme-logo.png
-    alt: Goldfish Scheme Logo
   actions:
     - theme: brand
       text: 快速开始

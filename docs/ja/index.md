@@ -7,9 +7,6 @@ hero:
   tagline:
     R7RS-small 互換の Scheme インタープリター、Python
     のような豊富な標準ライブラリを提供
-  image:
-    src: /GoldfishScheme-logo.png
-    alt: Goldfish Scheme Logo
   actions:
     - theme: brand
       text: はじめる

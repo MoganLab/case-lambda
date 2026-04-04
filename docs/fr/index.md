@@ -7,9 +7,6 @@ hero:
   tagline:
     Interpréteur Scheme compatible R7RS-small avec une bibliothèque standard
     polyvalente de style Python
-  image:
-    src: /GoldfishScheme-logo.png
-    alt: Goldfish Scheme Logo
   actions:
     - theme: brand
       text: Commencer

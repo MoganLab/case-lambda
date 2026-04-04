@@ -18,6 +18,7 @@ export default defineConfig({
   themeConfig: {
     // Logo（只显示 logo，不显示 title）
     logo: '/GoldfishScheme-logo.png',
+    siteTitle: false,
 
     // 搜索配置
     search: {
