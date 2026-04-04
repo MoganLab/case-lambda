@@ -4,7 +4,9 @@ layout: home
 hero:
   name: Goldfish Scheme
   text: Make Scheme as easy as Python
-  tagline: R7RS-small compatible Scheme interpreter with Python-like versatile standard library
+  tagline:
+    R7RS-small compatible Scheme interpreter with Python-like versatile standard
+    library
   image:
     src: /GoldfishScheme-logo.png
     alt: Goldfish Scheme Logo
@@ -22,16 +24,20 @@ hero:
 features:
   - icon: 🎯
     title: Simple & Efficient
-    details: R7RS-small compatible, depends only on S7 Scheme and tbox, small and fast.
+    details:
+      R7RS-small compatible, depends only on S7 Scheme and tbox, small and fast.
   - icon: 🐍
     title: Python-like
-    details: Rich standard library similar to Python, including HTTP, JSON, OS, path operations, etc.
+    details:
+      Rich standard library similar to Python, including HTTP, JSON, OS, path
+      operations, etc.
   - icon: 🤖
     title: AI Friendly
     details: Clear code structure, AI coding friendly, easy to learn and use.
   - icon: 📦
     title: Rich Library Support
-    details: Built-in extensive SRFI implementations and liii extension libraries.
+    details:
+      Built-in extensive SRFI implementations and liii extension libraries.
 ---
 
 <style>
