@@ -3,7 +3,7 @@
 ## 🌙 项目概述
 
 **项目名称**: Goldfish Scheme 文档网站  
-**技术栈**: VitePress + TypeScript + ESLint + Prettier  
+**技术栈**: VitePress + TypeScript + Tailwind CSS v4 + ESLint + Prettier  
 **包管理器**: Yarn 1.22.22  
 **目标**: 为 [MoganLab/goldfish](https://github.com/MoganLab/goldfish)
 创建一个现代化、易用的文档网站
@@ -18,24 +18,74 @@
 - [x] ESLint + Prettier 配置
 - [x] Yarn 包管理器配置
 - [x] 脚本绑定优化
+- [x] GitHub Pages 自动化部署
 
-### 阶段 2: 文档架构
+### 阶段 2: 文档架构 🟡
 
-- [ ] 设计文档导航结构
-- [ ] 创建指南部分
-- [ ] 搭建 API 文档框架
+- [ ] **导航结构设计**
+  - [x] 顶部导航（NavBar）
+  - [ ] 侧边栏导航（Sidebar.vue）
+  - [x] 页脚信息（Footer.vue）
+  - [ ] 文档目录组件（Toc.vue）
+- [ ] **自定义主题完善**
+  - [x] 基础布局（Layout.vue）
+  - [x] 导航栏（NavBar.vue）
+  - [x] 页脚（Footer.vue）
+  - [ ] 侧边栏组件（Sidebar.vue）
+  - [ ] 文档目录组件（Toc.vue）
+  - [ ] 深色/浅色模式切换
+- [ ] **页面模板**
+  - [x] 首页模板（home: true）
+  - [ ] 文档页模板
+  - [ ] 全宽页面模板（可选）
 
-### 阶段 3: 内容编写
+### 阶段 3: 内容编写 🔴
 
 - [ ] 编写快速开始指南
 - [ ] 编写 API 文档
 - [ ] 编写标准库文档
 
-### 阶段 4: 高级功能
+### 阶段 4: 高级功能 🔴
 
-- [ ] 搜索功能
-- [ ] 多语言支持
-- [ ] 自动化部署
+- [ ] **搜索功能**
+  - [ ] 配置本地搜索
+  - [ ] 自定义搜索 UI（可选）
+- [ ] **多语言支持 (i18n)**
+  - [ ] 配置多语言目录结构
+  - [ ] 配置语言切换器
+  - [ ] 中文内容 (zh) - 🟢 当前开发
+  - [ ] 英文内容 (en) - 🔴 预留
+  - [ ] 日语内容 (ja) - 🔴 预留
+  - [ ] 法语内容 (fr) - 🔴 预留
+  - [ ] 俄语内容 (ru) - 🔴 预留
+- [ ] **Tailwind CSS v4 集成**
+  - [ ] 配置 Tailwind CSS v4
+  - [ ] 设计系统/组件库
+  - [ ] 响应式布局优化
+  - [ ] 深色模式支持
+- [ ] **自动化部署** ✅
+  - [x] GitHub Actions 配置
+  - [x] GitHub Pages 部署
+
+### 阶段 5: Playground 🔴
+
+- [ ] **技术调研**
+  - [ ] 确认 Goldfish Scheme 构建方式
+  - [ ] 选择 WASM 编译方案
+  - [ ] 评估性能需求
+- [ ] **WASM 编译**
+  - [ ] 配置编译环境
+  - [ ] 编译 Goldfish 为 WASM
+  - [ ] 导出 JavaScript API
+- [ ] **Playground 组件**
+  - [ ] 代码编辑器（Monaco/CodeMirror）
+  - [ ] 运行按钮与交互
+  - [ ] 结果输出显示
+  - [ ] 错误处理与提示
+- [ ] **功能增强**
+  - [ ] 预设示例代码
+  - [ ] 代码分享功能
+  - [ ] 多文件支持（可选）
 
 ---
 
@@ -48,10 +98,34 @@ case-lambda/
 ├── docs/                      # 文档内容
 │   ├── .vitepress/           # VitePress 配置
 │   │   ├── config.mts        # 主配置 (TypeScript)
+│   │   ├── config/           # 多语言配置
+│   │   │   ├── shared.ts     # 共享配置
+│   │   │   ├── zh.ts         # 中文配置
+│   │   │   ├── en.ts         # 英文配置（预留）
+│   │   │   ├── ja.ts         # 日语配置（预留）
+│   │   │   ├── fr.ts         # 法语配置（预留）
+│   │   │   └── ru.ts         # 俄语配置（预留）
+│   │   ├── theme/            # 自定义主题
+│   │   │   ├── Layout.vue
+│   │   │   ├── components/
+│   │   │   │   ├── NavBar.vue
+│   │   │   │   ├── Footer.vue
+│   │   │   │   ├── Sidebar.vue      # 待实现
+│   │   │   │   └── Toc.vue          # 待实现
+│   │   │   └── style.css     # Tailwind CSS 入口
 │   │   └── env.d.ts          # 类型声明
-│   ├── guide/                # 指南文档
-│   ├── api/                  # API 文档
-│   └── examples/             # 示例
+│   ├── zh/                   # 中文内容（默认）
+│   │   ├── index.md
+│   │   └── guide/
+│   │       └── getting-started.md
+│   ├── en/                   # 英文内容（预留）
+│   │   └── index.md
+│   ├── ja/                   # 日语内容（预留）
+│   │   └── index.md
+│   ├── fr/                   # 法语内容（预留）
+│   │   └── index.md
+│   └── ru/                   # 俄语内容（预留）
+│       └── index.md
 ├── package.json              # 项目配置
 ├── tsconfig.json             # TypeScript 配置
 ├── eslint.config.js          # ESLint 配置
@@ -137,6 +211,7 @@ yarn install
   - 自动修复未使用变量（忽略 `_` 前缀）
   - Vue 组件命名宽松
   - 代码风格统一
+  - 禁用与 Prettier 冲突的 Vue 格式规则
 
 ### Prettier (prettier.config.js)
 
@@ -144,6 +219,38 @@ yarn install
 - 100字符行宽（比默认 80 更宽松）
 - 支持 Vue、Markdown、JSON 格式化
 - 不同文件类型的覆盖配置
+
+### Tailwind CSS v4 (待配置)
+
+- 使用 CSS-first 配置方式
+- 与 VitePress 集成
+- 支持深色模式
+- 自定义设计系统
+
+---
+
+## 🌐 多语言支持
+
+### 语言优先级
+
+| 优先级 | 语言 | 代码 | 状态        |
+| ------ | ---- | ---- | ----------- |
+| P0     | 中文 | zh   | 🟢 当前开发 |
+| P1     | 英文 | en   | 🔴 预留     |
+| P2     | 日语 | ja   | 🔴 预留     |
+| P2     | 法语 | fr   | 🔴 预留     |
+| P2     | 俄语 | ru   | 🔴 预留     |
+
+### 多语言目录结构
+
+```
+docs/
+├── zh/          # 中文内容（默认）
+├── en/          # 英文内容（预留）
+├── ja/          # 日语内容（预留）
+├── fr/          # 法语内容（预留）
+└── ru/          # 俄语内容（预留）
+```
 
 ---
 
@@ -159,6 +266,14 @@ yarn install
   "prettier": "^3.8.1",
   "vitepress": "^1.6.4",
   "vue": "^3.5.32"
+}
+```
+
+### 计划添加
+
+```json
+{
+  "tailwindcss": "^4.0.0"
 }
 ```
 
@@ -233,12 +348,13 @@ yarn eslint --print-config eslint.config.js
 
 ## 📅 开发计划
 
-| 阶段  | 任务     | 状态      |
-| ----- | -------- | --------- |
-| 阶段1 | 基础配置 | ✅ 完成   |
-| 阶段2 | 文档架构 | 🟡 进行中 |
-| 阶段3 | 内容编写 | 🔴 待开始 |
-| 阶段4 | 高级功能 | 🔴 待开始 |
+| 阶段  | 任务       | 状态      |
+| ----- | ---------- | --------- |
+| 阶段1 | 基础配置   | ✅ 完成   |
+| 阶段2 | 文档架构   | 🟡 进行中 |
+| 阶段3 | 内容编写   | 🔴 待开始 |
+| 阶段4 | 高级功能   | 🔴 待开始 |
+| 阶段5 | Playground | 🔴 待调研 |
 
 ---
 

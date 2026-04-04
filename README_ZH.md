@@ -9,7 +9,7 @@
 - AI 编程友好
 - 小巧且快速
 
-<img src="GoldfishScheme-logo.png" alt="示例图片" style="width: 360pt;">
+<img src="./docs/public/GoldfishScheme-logo.png" alt="示例图片" style="width: 360pt;">
 
 ## 以简为美
 
