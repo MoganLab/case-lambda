@@ -2,6 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // 默认语言（中文）
+  lang: 'zh-CN',
   title: 'Goldfish Scheme',
   description: '让 Scheme 和 Python 一样易用且实用',
 
