@@ -1,6 +1,6 @@
-// https://vitepress.dev/guide/custom-theme
-import Layout from './Layout.vue'
+// 扩展 VitePress 默认主题
 import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
 import './style.css'
 
 // 语言映射配置
@@ -33,9 +33,7 @@ const langMap: Record<string, string> = {
 // 获取语言路径
 function getLangPath(): string {
   const lang =
-    navigator.language ||
-    (navigator as Navigator & { userLanguage?: string }).userLanguage ||
-    'zh'
+    navigator.language || (navigator as Navigator & { userLanguage?: string }).userLanguage || 'zh'
 
   // 直接匹配
   if (langMap[lang]) {
@@ -53,7 +51,7 @@ function getLangPath(): string {
 }
 
 // 执行语言重定向
-function redirectToLang(router: any) {
+function redirectToLang(router: { go: (path: string) => void }) {
   // 只在客户端执行
   if (typeof window === 'undefined') return
 
@@ -61,19 +59,14 @@ function redirectToLang(router: any) {
   const base = '/case-lambda'
 
   // 检查当前路径是否是根路径或只有 base
-  if (
-    path === '/' ||
-    path === base ||
-    path === `${base}/` ||
-    path === `${base}/index.html`
-  ) {
+  if (path === '/' || path === base || path === `${base}/` || path === `${base}/index.html`) {
     const langPath = getLangPath()
     router.go(`${base}${langPath}`)
   }
 }
 
 export default {
-  Layout,
+  extends: DefaultTheme,
   enhanceApp({ app: _app, router, siteData: _siteData }) {
     // 在路由就绪后进行语言重定向
     if (typeof window !== 'undefined') {
