@@ -51,32 +51,40 @@ function getLangPath(): string {
 }
 
 // 执行语言重定向
-function redirectToLang(router: { go: (path: string) => void }) {
+function redirectToLang(router: { go: (path: string) => void }, base: string) {
   // 只在客户端执行
   if (typeof window === 'undefined') return
 
   const path = window.location.pathname
-  const base = '/'
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`
+  const rootPath = normalizedBase
+  const rootIndexPath = `${normalizedBase}index.html`
 
   // 检查当前路径是否是根路径或只有 base
-  if (path === '/' || path === base || path === `${base}/` || path === `${base}/index.html`) {
+  if (path === '/' || path === rootPath || path === rootIndexPath) {
     const langPath = getLangPath()
-    router.go(`${base}${langPath}`)
+
+    // langPath 已经是绝对路径（如 /zh/），避免与 base 再拼接导致 //zh/
+    if (path !== langPath) {
+      router.go(langPath)
+    }
   }
 }
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app: _app, router, siteData: _siteData }) {
+  enhanceApp({ app: _app, router, siteData }) {
     // 在路由就绪后进行语言重定向
     if (typeof window !== 'undefined') {
+      const base = siteData.value.base || '/'
+
       // 初始加载时检查
-      redirectToLang(router)
+      redirectToLang(router, base)
 
       // 监听路由变化
       router.onAfterRouteChange = (to: string) => {
         if (to === '/' || to === '/index.html') {
-          redirectToLang(router)
+          redirectToLang(router, base)
         }
       }
     }
