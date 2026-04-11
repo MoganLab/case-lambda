@@ -10,7 +10,7 @@ export default defineConfig({
   outDir: './dist',
 
   // 基础配置 (GitHub Pages 项目站点需要设置子路径)
-  base: '/case-lambda/',
+  base: '/',
 
   // 清理 URL
   cleanUrls: true,
