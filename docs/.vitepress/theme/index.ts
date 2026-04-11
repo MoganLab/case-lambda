@@ -56,7 +56,7 @@ function redirectToLang(router: { go: (path: string) => void }) {
   if (typeof window === 'undefined') return
 
   const path = window.location.pathname
-  const base = '/case-lambda'
+  const base = '/'
 
   // 检查当前路径是否是根路径或只有 base
   if (path === '/' || path === base || path === `${base}/` || path === `${base}/index.html`) {
