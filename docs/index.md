@@ -5,11 +5,11 @@ layout: false
 <div class="redirect-page">
   <p class="loading">正在跳转...</p>
   <ul class="lang-list">
-    <li><a href="/case-lambda/zh/">简体中文</a></li>
-    <li><a href="/case-lambda/en/">English</a></li>
-    <li><a href="/case-lambda/ja/">日本語</a></li>
-    <li><a href="/case-lambda/fr/">Français</a></li>
-    <li><a href="/case-lambda/ru/">Русский</a></li>
+    <li><a href="/zh/">简体中文</a></li>
+    <li><a href="/en/">English</a></li>
+    <li><a href="/ja/">日本語</a></li>
+    <li><a href="/fr/">Français</a></li>
+    <li><a href="/ru/">Русский</a></li>
   </ul>
 </div>
 
